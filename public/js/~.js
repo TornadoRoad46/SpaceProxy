@@ -13,6 +13,9 @@
     //return decipher.update(text, 'hex', 'utf8') + decipher.final('utf8');
 //}
 
+// Force ads off permanently
+localStorage.setItem('hideAds', 'true');
+
 localforage.setItem('e', 'e');
 shapePositions = {
 	blank: '26.5px',
