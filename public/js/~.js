@@ -13,6 +13,9 @@
     //return decipher.update(text, 'hex', 'utf8') + decipher.final('utf8');
 //}
 
+// Force ads off permanently
+localStorage.setItem('hideAds', 'true');
+
 localforage.setItem('e', 'e');
 shapePositions = {
 	blank: '26.5px',
@@ -698,6 +701,19 @@ document.addEventListener('DOMContentLoaded', function () {
 		}
 	});
 
+	    // ===== ADS OVERRIDE - PLACED HERE =====
+    // Force ads off and disable the toggle
+    localStorage.setItem('hideAds', 'true');
+    const adsCheckbox = document.querySelector('.checkbox.adsYesNo');
+    if (adsCheckbox) {
+        adsCheckbox.checked = false;
+        adsCheckbox.disabled = true;
+        adsCheckbox.addEventListener('change', (e) => {
+            e.preventDefault();
+            adsCheckbox.checked = false; // backup
+        });
+    }
+	
 	let importButton = document.getElementById('importData');
 	let exportButton = document.getElementById('exportData');
 
